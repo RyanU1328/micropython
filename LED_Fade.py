@@ -1,7 +1,7 @@
 from machine import Pin, PWM
 from time import sleep
 
-led = PWM(Pin(25))
+led = PWM(Pin("LED"))
 led.freq(1000)
 
 while True:

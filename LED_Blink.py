@@ -1,10 +1,10 @@
-from machine import Pin
-import time
+import machine
+import utime
 
-led = Pin(25, Pin.OUT)
+led = machine.Pin("LED", machine.Pin.OUT)
 
 while True:
-    led.value(1)
-    time.sleep(1)
-    led.value(0)
-    time.sleep(1)
+    led.on()
+    utime.sleep(1)
+    led.off()
+    utime.sleep(1)
