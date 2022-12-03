@@ -1,36 +1,74 @@
-from machine import Pin
+import network, socket
+from secret import SSID, PASSWORD
 from time import sleep
-from _thread import start_new_thread
+from machine import Pin
 
 led = Pin("LED", Pin.OUT)
 
-for i in range(0, 10):
+a = 0
+b = 0
+c = 0
+d = 0
+e = 0
+
+html = """<!DOCTYPE html>
+<html>
+    <body> <h1>{a}|{b}|{c}|{d}|{e}</h1>
+    </body>
+</html>
+""".format(a=a, b=b, c=c, d=d, e=e)
+
+for i in range(0, 5):
     led.on()
-    sleep(0.25)
+    sleep(0.1)
     led.off()
-    sleep(0.25)
+    sleep(0.1)
 
-button1 = Pin(15, Pin.IN, Pin.PULL_DOWN)
-button2 = Pin(14, Pin.IN, Pin.PULL_DOWN)
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(SSID, PASSWORD)
 
-x = 0
-y = 0
+connectCount = 0
 
-def button_down():
-    global x, y
-    while True:
-        if button1.value() == 1:
-            x += 100
-            led.on()
-            sleep(1)
-            led.off()
-        if button2.value() == 1:
-            y += 100
-            led.on()
-            sleep(1)
-            led.off()
+max_wait = 100
+while max_wait > 0:
+    if wlan.status() < 0 or wlan.status() >= 3:
+        break
+    max_wait -= 1
+    print('waiting for connection...')
+    sleep(1)
 
-new_thread = start_new_thread(button_down, ())
+if wlan.status() != 3:
+    raise RuntimeError('network connection failed')
+else:
+    print('connected')
+    led.on()
+    status = wlan.ifconfig()
+    print( 'ip = ' + status[0] )
 
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+
+s = socket.socket()
+s.bind(addr)
+s.listen(100)
+
+print('listening on', addr)
+
+# Listen for connections
 while True:
-     print("{}|0|{}|0|0".format(x, y))
+    try:
+        cl, addr = s.accept()
+        print('client connected from', addr)
+        request = cl.recv(1024)
+        print(request)
+
+        request = str(request)
+
+        response = html
+
+        cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
+        cl.send(response)
+        cl.close()
+
+    except OSError as e:
+       print('connection closed')

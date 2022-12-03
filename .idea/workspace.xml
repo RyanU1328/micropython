@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/secret.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/micropython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/micropython.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LED_Blink.py" beforeDir="false" afterPath="$PROJECT_DIR$/LED_Blink.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LED_Fade.py" beforeDir="false" afterPath="$PROJECT_DIR$/LED_Fade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LED_Blink.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LED_Fade.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/files/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,24 +32,39 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MicroPythonDevices" devicePath="COM7" autoDetectDevicePath="false" clearReplOnLaunch="false" />
   <component name="ProjectId" id="2HckkWsbwR2mRQNHTZDm49tI8pv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.micropython.configurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/ryan1/PycharmProjects/micropython/files/main.py",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
-}</component>
-  <component name="RunManager" selected="MicroPython.Flash main.py">
-    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" path="$PROJECT_DIR$/main.py" runReplOnSuccess="no">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ryan1\PycharmProjects\micropython\files" />
+      <recent name="C:\Users\ryan1\PycharmProjects\micropython" />
+    </key>
+  </component>
+  <component name="RunManager" selected="MicroPython.Flash micropython">
+    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="C:\Users\ryan1\PycharmProjects\micropython\files\main.py" runReplOnSuccess="no">
       <module name="micropython" />
-      <method v="2" />
+      <method v="2">
+        <option name="MicroPython.StopREPL.Before.Run" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Flash micropython" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="C:\Users\ryan1\PycharmProjects\micropython\" runReplOnSuccess="no">
+      <module name="micropython" />
+      <method v="2">
+        <option name="MicroPython.StopREPL.Before.Run" enabled="true" />
+      </method>
     </configuration>
     <configuration name="LED_Blink" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="micropython" />
@@ -70,6 +89,7 @@
     </configuration>
     <list>
       <item itemvalue="MicroPython.Flash main.py" />
+      <item itemvalue="MicroPython.Flash micropython" />
       <item itemvalue="Python.LED_Blink" />
     </list>
   </component>
@@ -89,19 +109,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
