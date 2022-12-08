@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="Commit #3" />
+    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="Commit #3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotary.py" beforeDir="false" afterPath="$PROJECT_DIR$/rotary.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,6 +102,14 @@
       <workItem from="1670502444107" duration="29000" />
       <workItem from="1670502490884" duration="10579000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit #3">
+      <created>1670516509131</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670516509131</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,5 +137,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit #3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit #3" />
   </component>
 </project>

@@ -11,23 +11,34 @@ from rotary import volume_knobs
 
 from secret import SSID, PASSWORD
 
+# Declare LED objects, onboard LED, and red status LED
 led = Pin("LED", Pin.OUT)
 red = Pin(2, Pin.OUT)
 
+# Function to obtain the HTML file, makes it easier to refresh the server
 def get_html(html_name):
     with open(html_name, 'r') as file:
         html = file.read()
     return html
 
-red.on()
+# Onboard LED flashes, this is to show the script has loaded and the pico is powered
 for i in range(0, 5):
     led.on()
     sleep(0.15)
     led.off()
     sleep(0.15)
+
+# Red light on to show it isn't connected yet
+red.on()
+
+# Create network object
 wlan = network.WLAN(network.STA_IF)
+# This prevents an error where after a soft reset the pico thinks it is still connected to the network
+# just hard resets the pico if it thinks it is connected at this point
 if wlan.active():
     machine.reset()
+
+# Turn wlan on and connect via the credentials in the secret.py file
 wlan.active(True)
 wlan.connect(SSID, PASSWORD)
 

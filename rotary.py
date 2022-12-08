@@ -1,25 +1,33 @@
 from machine import Pin
 from time import sleep
 
+# Declare volume variables, min 0, max 1023. Set at half to start.
+# The specific apps these values control is set in the config.yaml file
 MASTER = 500
 FIREFOX = 500
 SPOTIFY = 500
 GAMES = 500
 DISCORD = 500
+# Declare variable to determine if program should affect PC or LAPTOP. Default PC.
 user = "PC"
-
+# Declare variables for rotary pins
 MasterPin = [3, 4, 5]
 FirefoxPin = [6, 7, 8]
 SpotifyPin = [9, 10, 11]
 GamesPin = [13, 14, 15]
 DiscordPin = [18, 19, 20]
+
+
+# Function, controls the volume variables and the user variable. Each section codes for a specific rotary encoder to
+# change the volume of a specific application. A button is used to switch between laptop and PC ion the user variable.
 def volume_knobs():
+    # This is the time delay the light will stay on for during the turning of a knob
     turn_sleep_time = 0.005
-
+    # This sets the second to max volume the variables can be set to
     volume_max = 1000
-
+    # Declare red LED object
     red = Pin(2, Pin.OUT)
-
+    # Each of these are the pins needed to work with the rotary encoders. step = CLK, direction = DT, button = SW
     step_pin_master = Pin(MasterPin[0], Pin.IN, Pin.PULL_UP)
     direction_pin_master = Pin(MasterPin[1], Pin.IN, Pin.PULL_UP)
     button_pin_master = Pin(MasterPin[2], Pin.IN, Pin.PULL_UP)
@@ -39,16 +47,16 @@ def volume_knobs():
     step_pin_discord = Pin(DiscordPin[0], Pin.IN, Pin.PULL_UP)
     direction_pin_discord = Pin(DiscordPin[1], Pin.IN, Pin.PULL_UP)
     button_pin_discord = Pin(DiscordPin[2], Pin.IN, Pin.PULL_UP)
-
+    # Declare the button to toggle the user variable
     user_button = Pin(16, Pin.IN, Pin.PULL_DOWN)
-
+    # Use the volume and user variables as global variables. Not 100% sure this is necessary, but here it is
     global MASTER
     global SPOTIFY
     global FIREFOX
     global GAMES
     global DISCORD
     global user
-
+    # Declare variables that help with debouncing the turns and the button press
     previous_value_master = True
     button_down_master = False
     previous_value_firefox = True
@@ -60,15 +68,15 @@ def volume_knobs():
     previous_value_discord = True
     button_down_discord = False
 
-
-
+    # Declare variables that store the volume variables when muting
     tempValueMaster = 0
     tempValueSpotify = 0
     tempValueFirefox = 0
     tempValueGames = 0
     tempValueDiscord = 0
-
+    # Start loop
     while True:
+        # User toggle
         if user_button.value() == 1:
             if user == "PC":
                 user = "LAPTOP"
@@ -81,6 +89,7 @@ def volume_knobs():
                 sleep(0.5)
                 red.off()
 
+        # Master volume is controlled here
         if previous_value_master != step_pin_master.value():
             if not step_pin_master.value():
                 if not direction_pin_master.value():
@@ -120,15 +129,17 @@ def volume_knobs():
             red.on()
             sleep(0.5)
             red.off()
-        if button_pin_master.value() == True and button_down_master:
+        if button_pin_master.value() and button_down_master:
             button_down_master = False
 
-
+        # Firefox volume is controlled here
         if previous_value_firefox != step_pin_firefox.value():
             if not step_pin_firefox.value():
                 if not direction_pin_firefox.value():
                     print("turned left")
-                    if FIREFOX > 0:
+                    if FIREFOX == 1023:
+                        FIREFOX = volume_max
+                    elif FIREFOX > 0:
                         FIREFOX -= 50
                         red.on()
                         sleep(turn_sleep_time)
@@ -140,7 +151,10 @@ def volume_knobs():
                         red.on()
                         sleep(turn_sleep_time)
                         red.off()
-            previous_value_firefox = step_pin_master.value()
+                    if FIREFOX == volume_max:
+                        FIREFOX = 1023
+
+            previous_value_firefox = step_pin_firefox.value()
 
         if button_pin_firefox.value() == 0 and not button_down_firefox:
             print("button pushed")
@@ -154,15 +168,17 @@ def volume_knobs():
             red.on()
             sleep(0.5)
             red.off()
-        if button_pin_firefox.value() == True and button_down_firefox:
+        if button_pin_firefox.value() and button_down_firefox:
             button_down_firefox = False
 
-
+        # Spotify volume is controlled here
         if previous_value_spotify != step_pin_spotify.value():
             if not step_pin_spotify.value():
                 if not direction_pin_spotify.value():
                     print("turned left")
-                    if SPOTIFY > 0:
+                    if SPOTIFY == 1023:
+                        SPOTIFY = 1000
+                    elif SPOTIFY > 0:
                         SPOTIFY -= 50
                         red.on()
                         sleep(turn_sleep_time)
@@ -174,9 +190,12 @@ def volume_knobs():
                         red.on()
                         sleep(turn_sleep_time)
                         red.off()
+                    if SPOTIFY == volume_max:
+                        SPOTIFY = 1023
+
             previous_value_spotify = step_pin_spotify.value()
 
-        if button_pin_spotify.value() == False and not button_down_spotify:
+        if not button_pin_spotify.value() and not button_down_spotify:
             print("button pushed")
             if SPOTIFY > 0:
                 tempValueSpotify = SPOTIFY
@@ -188,16 +207,17 @@ def volume_knobs():
             red.on()
             sleep(0.5)
             red.off()
-        if button_pin_spotify.value() == True and button_down_spotify:
+        if button_pin_spotify.value() and button_down_spotify:
             button_down_spotify = False
 
-
-
+        # Games volume is controlled here
         if previous_value_games != step_pin_games.value():
             if not step_pin_games.value():
                 if not direction_pin_games.value():
                     print("turned left")
-                    if GAMES > 0:
+                    if GAMES == 1023:
+                        GAMES = 1000
+                    elif GAMES > 0:
                         GAMES -= 50
                         red.on()
                         sleep(turn_sleep_time)
@@ -209,6 +229,9 @@ def volume_knobs():
                         red.on()
                         sleep(turn_sleep_time)
                         red.off()
+                    if GAMES == volume_max:
+                        GAMES = 1023
+
             previous_value_games = step_pin_games.value()
 
         if button_pin_games.value() == 0 and not button_down_games:
@@ -223,15 +246,17 @@ def volume_knobs():
             red.on()
             sleep(0.5)
             red.off()
-        if button_pin_games.value() == True and button_down_games:
+        if button_pin_games.value() and button_down_games:
             button_down_games = False
 
-
+        # Discord volume is controlled here
         if previous_value_discord != step_pin_discord.value():
             if not step_pin_discord.value():
                 if not direction_pin_discord.value():
                     print("turned left")
-                    if DISCORD > 0:
+                    if DISCORD == 2013:
+                        DISCORD = 1000
+                    elif DISCORD > 0:
                         DISCORD -= 50
                         red.on()
                         sleep(turn_sleep_time)
@@ -243,6 +268,8 @@ def volume_knobs():
                         red.on()
                         sleep(turn_sleep_time)
                         red.off()
+                    if DISCORD == volume_max:
+                        DISCORD - 1023
             previous_value_discord = step_pin_discord.value()
 
         if button_pin_discord.value() == 0 and not button_down_discord:
@@ -257,5 +284,5 @@ def volume_knobs():
             red.on()
             sleep(0.5)
             red.off()
-        if button_pin_discord.value() == True and button_down_discord:
+        if button_pin_discord.value() and button_down_discord:
             button_down_discord = False
