@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="Commit #3">
+    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="Commit #4&#10;&#10;Adding comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rotary.py" beforeDir="false" afterPath="$PROJECT_DIR$/rotary.py" afterDir="false" />
@@ -109,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670516509131</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit #4&#10;&#10;Adding comments">
+      <created>1670516567928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670516567928</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +147,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit #3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit #3" />
+    <MESSAGE value="Commit #4&#10;&#10;Adding comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit #4&#10;&#10;Adding comments" />
   </component>
 </project>

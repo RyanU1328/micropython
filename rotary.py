@@ -8,8 +8,10 @@ FIREFOX = 500
 SPOTIFY = 500
 GAMES = 500
 DISCORD = 500
+
 # Declare variable to determine if program should affect PC or LAPTOP. Default PC.
 user = "PC"
+
 # Declare variables for rotary pins
 MasterPin = [3, 4, 5]
 FirefoxPin = [6, 7, 8]
@@ -21,12 +23,17 @@ DiscordPin = [18, 19, 20]
 # Function, controls the volume variables and the user variable. Each section codes for a specific rotary encoder to
 # change the volume of a specific application. A button is used to switch between laptop and PC ion the user variable.
 def volume_knobs():
+
     # This is the time delay the light will stay on for during the turning of a knob
     turn_sleep_time = 0.005
+
     # This sets the second to max volume the variables can be set to
     volume_max = 1000
-    # Declare red LED object
+
+    # Declare LED objects
     red = Pin(2, Pin.OUT)
+    green = Pin(17, Pin.OUT)
+
     # Each of these are the pins needed to work with the rotary encoders. step = CLK, direction = DT, button = SW
     step_pin_master = Pin(MasterPin[0], Pin.IN, Pin.PULL_UP)
     direction_pin_master = Pin(MasterPin[1], Pin.IN, Pin.PULL_UP)
@@ -47,8 +54,10 @@ def volume_knobs():
     step_pin_discord = Pin(DiscordPin[0], Pin.IN, Pin.PULL_UP)
     direction_pin_discord = Pin(DiscordPin[1], Pin.IN, Pin.PULL_UP)
     button_pin_discord = Pin(DiscordPin[2], Pin.IN, Pin.PULL_UP)
+
     # Declare the button to toggle the user variable
     user_button = Pin(16, Pin.IN, Pin.PULL_DOWN)
+
     # Use the volume and user variables as global variables. Not 100% sure this is necessary, but here it is
     global MASTER
     global SPOTIFY
@@ -56,6 +65,7 @@ def volume_knobs():
     global GAMES
     global DISCORD
     global user
+
     # Declare variables that help with debouncing the turns and the button press
     previous_value_master = True
     button_down_master = False
@@ -74,8 +84,10 @@ def volume_knobs():
     tempValueFirefox = 0
     tempValueGames = 0
     tempValueDiscord = 0
+
     # Start loop
     while True:
+
         # User toggle
         if user_button.value() == 1:
             if user == "PC":
@@ -96,25 +108,22 @@ def volume_knobs():
                     print("turned left")
                     if MASTER == 1023:
                         MASTER = volume_max
-                        red.on()
-                        sleep(turn_sleep_time)
-                        red.off()
                     elif MASTER > 0:
                         MASTER -= 50
+                    if MASTER == 0:
                         red.on()
-                        sleep(turn_sleep_time)
-                        red.off()
+                        green.off()
 
                 else:
                     print("turned right")
                     if MASTER < volume_max:
                         MASTER += 50
-                        red.on()
-                        sleep(turn_sleep_time)
                         red.off()
+                        green.on()
                     if MASTER == volume_max:
                         MASTER = 1023
-
+                        red.off()
+                        green.on()
             previous_value_master = step_pin_master.value()
 
         if button_pin_master.value() == 0 and not button_down_master:
@@ -122,13 +131,17 @@ def volume_knobs():
             if MASTER > 0:
                 tempValueMaster = MASTER
                 MASTER = 0
+                red.on()
+                green.off()
             else:
                 MASTER = tempValueMaster
                 tempValueMaster = 0
-            button_down_master = True
-            red.on()
+                if MASTER > 0:
+                    red.off()
+                    green.on()
             sleep(0.5)
-            red.off()
+            button_down_master = True
+
         if button_pin_master.value() and button_down_master:
             button_down_master = False
 
