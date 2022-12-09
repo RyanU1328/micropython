@@ -1,0 +1,182 @@
+Index: LED_Blink.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from machine import Pin\r\nimport time\r\n\r\nled = Pin(25, Pin.OUT)\r\n\r\nwhile True:\r\n    led.value(1)\r\n    time.sleep(1)\r\n    led.value(0)\r\n    time.sleep(1)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LED_Blink.py b/LED_Blink.py
+--- a/LED_Blink.py	(revision ab5c7b6b011c98bb9cd0c09c85c70eb023b35466)
++++ b/LED_Blink.py	(date 1668784079599)
+@@ -1,10 +1,10 @@
+ from machine import Pin
+-import time
++from utime import sleep
+ 
+ led = Pin(25, Pin.OUT)
+ 
+ while True:
+-    led.value(1)
+-    time.sleep(1)
+-    led.value(0)
+-    time.sleep(1)
+\ No newline at end of file
++    led(1)
++    sleep(1)
++    led(0)
++    sleep(1)
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.11 (micropython)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision ab5c7b6b011c98bb9cd0c09c85c70eb023b35466)
++++ b/.idea/misc.xml	(date 1668783585092)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (micropython)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/micropython.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"MicroPython\" name=\"MicroPython\">\r\n      <configuration>\r\n        <device name=\"Raspberry Pi Pico\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/venv\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.idea\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"MicroPython\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/micropython.iml b/.idea/micropython.iml
+--- a/.idea/micropython.iml	(revision ab5c7b6b011c98bb9cd0c09c85c70eb023b35466)
++++ b/.idea/micropython.iml	(date 1668783585084)
+@@ -12,7 +12,7 @@
+       <excludeFolder url="file://$MODULE_DIR$/venv" />
+       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+     <orderEntry type="library" name="MicroPython" level="project" />
+   </component>
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+new file mode 100644
+--- /dev/null	(date 1669908330693)
++++ b/main.py	(date 1669908330693)
+@@ -0,0 +1,15 @@
++from machine import reset, Pin, UART
++from time import sleep
++
++uart = UART(1, 9600)
++
++uart.init(9600, bits=8, parity=None, stop = 1)
++
++uart.write("Hello")
++
++onboard = Pin("LED", Pin.OUT)
++onboard.on()
++sleep(1)
++onboard.off()
++
++reset()
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e2832905-84c0-4c6d-adb3-a90e3d20f3a8\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HckkWsbwR2mRQNHTZDm49tI8pv\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"settings.editor.selected.configurable\": \"com.jetbrains.python.configuration.PythonContentEntriesConfigurable\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"LED_Blink\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"micropython\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"C:\\Users\\ryan1\\PycharmProjects\\micropython\\LED_Blink.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e2832905-84c0-4c6d-adb3-a90e3d20f3a8\" name=\"Changes\" comment=\"\" />\r\n      <created>1668591902749</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668591902749</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ab5c7b6b011c98bb9cd0c09c85c70eb023b35466)
++++ b/.idea/workspace.xml	(date 1670008140963)
+@@ -4,7 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="" />
++    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/micropython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/micropython.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/LED_Blink.py" beforeDir="false" afterPath="$PROJECT_DIR$/LED_Blink.py" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -17,20 +23,33 @@
+       </list>
+     </option>
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
++  <component name="MicroPythonDevices" devicePath="COM5" />
+   <component name="ProjectId" id="2HckkWsbwR2mRQNHTZDm49tI8pv" />
++  <component name="ProjectLevelVcsManager">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+   }
+-}]]></component>
+-  <component name="RunManager">
++}</component>
++  <component name="RunManager" selected="MicroPython.main.py">
++    <configuration name="main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" path="$PROJECT_DIR$/main.py" runReplOnSuccess="no">
++      <module name="micropython" />
++      <method v="2" />
++    </configuration>
+     <configuration name="LED_Blink" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+       <module name="micropython" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+@@ -52,6 +71,10 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
++    <list>
++      <item itemvalue="MicroPython.main.py" />
++      <item itemvalue="Python.LED_Blink" />
++    </list>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -64,4 +87,15 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
