@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/secret.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/micropython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/micropython.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e2832905-84c0-4c6d-adb3-a90e3d20f3a8" name="Changes" comment="Commit #4&#10;&#10;Adding comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LED_Blink.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LED_Fade.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/files/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotary.py" beforeDir="false" afterPath="$PROJECT_DIR$/rotary.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,45 +17,45 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MicroPythonDevices" devicePath="COM3" clearReplOnLaunch="false" />
   <component name="ProjectId" id="2HckkWsbwR2mRQNHTZDm49tI8pv" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/ryan1/PycharmProjects/micropython/files/main.py",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/ryan1/PycharmProjects/UART_Testing&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.micropython.configurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ryan1\PycharmProjects\micropython\files" />
-      <recent name="C:\Users\ryan1\PycharmProjects\micropython" />
-    </key>
-  </component>
-  <component name="RunManager" selected="MicroPython.Flash micropython">
-    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="C:\Users\ryan1\PycharmProjects\micropython\files\main.py" runReplOnSuccess="no">
-      <module name="micropython" />
-      <method v="2">
-        <option name="MicroPython.StopREPL.Before.Run" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Flash micropython" type="MicroPythonConfigurationType" factoryName="MicroPython" nameIsGenerated="true" path="C:\Users\ryan1\PycharmProjects\micropython\" runReplOnSuccess="no">
+}</component>
+  <component name="RunManager" selected="MicroPython.Flash main.py">
+    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" path="$PROJECT_DIR$/" runReplOnSuccess="no">
       <module name="micropython" />
       <method v="2">
         <option name="MicroPython.StopREPL.Before.Run" enabled="true" />
@@ -78,7 +73,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\ryan1\PycharmProjects\micropython\LED_Blink.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/micropython/LED_Blink.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -89,7 +85,6 @@
     </configuration>
     <list>
       <item itemvalue="MicroPython.Flash main.py" />
-      <item itemvalue="MicroPython.Flash micropython" />
       <item itemvalue="Python.LED_Blink" />
     </list>
   </component>
@@ -101,18 +96,58 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668591902749</updated>
+      <workItem from="1670167487437" duration="13000" />
+      <workItem from="1670172388393" duration="2659000" />
+      <workItem from="1670190952754" duration="1683000" />
+      <workItem from="1670502444107" duration="29000" />
+      <workItem from="1670502490884" duration="10579000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit #3">
+      <created>1670516509131</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670516509131</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit #4&#10;&#10;Adding comments">
+      <created>1670516567928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670516567928</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit #3" />
+    <MESSAGE value="Commit #4&#10;&#10;Adding comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit #4&#10;&#10;Adding comments" />
   </component>
 </project>
